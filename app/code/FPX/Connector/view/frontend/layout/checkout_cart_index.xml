@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector checkout cart index layout
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.container">
+            <block class="FPX\Connector\Block\FpxCart" name="fpx.proposal" template="proposal.phtml" before="-"/>
+        </referenceContainer>
+        <referenceBlock name="checkout.cart.crosssell" template="FPX_Connector::product/list/items.phtml"/>
+    </body>
+</page>

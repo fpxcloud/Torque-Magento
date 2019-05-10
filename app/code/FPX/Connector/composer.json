@@ -1,0 +1,19 @@
+{
+  "name": "fpx/magento2-connector",
+  "description": "Magento 2 integration for FPX",
+  "type": "magento2-module",
+  "version": "1.0.1",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "magento/framework": "~100.0|~101.0"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "FPX\\Connector\\": ""
+    }
+  }
+}

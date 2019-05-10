@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.addtocart">
+            <!-- This is deprecated action node, because Magento core use it and it can't be overrided in a different way -->
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">FPX_Connector::cart/item/configure/updatecart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.fpx.configure" template="FPX_Connector::product/view/reconfigure.phtml"/>
+    </body>
+</page>
