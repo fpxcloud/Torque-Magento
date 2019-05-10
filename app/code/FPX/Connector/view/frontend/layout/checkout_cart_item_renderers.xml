@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.cart.item.renderers.default" template="FPX_Connector::cart/item/default.phtml" />
+        <referenceBlock name="checkout.cart.item.renderers.simple" template="FPX_Connector::cart/item/default.phtml" />
+        <referenceBlock name="checkout.cart.item.renderers.configurable" template="FPX_Connector::cart/item/default.phtml" />
+        <referenceBlock name="checkout.cart.item.renderers.virtual" template="FPX_Connector::cart/item/default.phtml" />
+        <referenceBlock name="checkout.cart.item.renderers.grouped" template="FPX_Connector::cart/item/default.phtml" />
+        <referenceBlock name="checkout.cart.item.renderers.bundle" template="FPX_Connector::cart/item/default.phtml" />
+
+        <!-- Remove native action "Edit" -->
+        <referenceBlock name="checkout.cart.item.renderers.default.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.simple.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.virtual.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.configurable.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.grouped.actions.edit" remove="true"/>
+
+        <!-- Add action "Edit CPQ configuration" -->
+        <referenceBlock name="checkout.cart.item.renderers.default.actions">
+            <block class="FPX\Connector\Block\Cart\Item\Renderer\Actions\Generic"
+                   name="checkout.cart.item.renderers.default.actions.configure"
+                   template="FPX_Connector::cart/item/renderer/actions/configure.phtml"
+                   before="checkout.cart.item.renderers.default.actions.remove"/>
+        </referenceBlock>
+        <referenceBlock name="checkout.cart.item.renderers.simple.actions">
+            <block class="FPX\Connector\Block\Cart\Item\Renderer\Actions\Generic"
+                   name="checkout.cart.item.renderers.simple.actions.configure"
+                   template="FPX_Connector::cart/item/renderer/actions/configure.phtml"
+                   before="checkout.cart.item.renderers.simple.actions.remove"/>
+        </referenceBlock>
+    </body>
+</page>

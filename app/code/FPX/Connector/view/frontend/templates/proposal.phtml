@@ -1,0 +1,17 @@
+<?php
+/**
+ * FPX_Connector add Proposal link to Cart
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+?>
+<?php
+/** @var $block \FPX\Connector\Block\FpxCart */
+?>
+<?php if ($block->isNeedProposalLink()) : ?>
+    <a class="proposal-link" href="<?php echo $block->escapeUrl($block->getUrl('fpx_connector/cart/proposal')); ?>">
+        Generate Proposal
+    </a>
+<?php endif; ?>

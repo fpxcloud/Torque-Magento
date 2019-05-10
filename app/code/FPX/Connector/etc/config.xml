@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector module
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <fpxconnector>
+            <general>
+                <enable>1</enable>
+                <api_ver>19</api_ver>
+            </general>
+        </fpxconnector>
+    </default>
+</config>

@@ -1,0 +1,29 @@
+<?php /** @var $block \FPX\Connector\Block\Cart\Item\Renderer\Actions\Generic */ ?>
+<?php $fpxButtonTitle = __('Edit product configuration'); ?>
+
+<?php if ($block->isFpxProduct()) : ?>
+    <a class="action action-edit action-configure"
+       href="#"
+       title="<?php echo $block->escapeHtml($fpxButtonTitle); ?>"
+       data-mage-init='{
+            "cpqButton": {
+                "useFormData": false,
+                "refreshPage": true,
+                "authUrl": "<?php echo $block->escapeUrl($block->getAuthUrl()); ?>",
+                "addCartUrl": "<?php echo $block->escapeUrl($block->getUrl('checkout/cart/add')); ?>",
+                "editCartUrl": "<?php echo $block->escapeUrl($block->getUrl('fpx_connector/cart/update')); ?>",
+                "requestOptions": {},
+                "integrationOptions": {
+                    "divId": "cpq_popup",
+                    "iframeUrl": "<?php echo $block->escapeUrl($block->getIframeUrl()); ?>",
+                    "sku": "<?php /* @noEscape */ echo $block->getProductSku(); ?>",
+                    "dataSet": "<?php /* @noEscape */ echo $block->getProductFpxId(); ?>",
+                    "action": "edit",
+                    "productDataPrefix": "<?php /* @noEscape */ echo $block->getProductDataPrefix(); ?>"
+                }
+            }
+        }'
+    >
+        <span><?php /* @noEscape */ echo $fpxButtonTitle; ?></span>
+    </a>
+<?php endif; ?>

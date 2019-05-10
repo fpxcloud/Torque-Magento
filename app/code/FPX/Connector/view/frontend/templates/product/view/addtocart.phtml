@@ -1,0 +1,63 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View */
+$_product = $block->getProduct();
+$buttonTitle = __('Add to Cart');
+$fpxProductHelper = $this->helper('FPX\Connector\Helper\FpxProduct');
+$validators = json_encode($block->getQuantityValidators());
+?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) : ?>
+                <?php if (!$fpxProductHelper->isFpxEnabledByProductId($_product->getId())) : ?>
+                    <div class="field qty">
+                        <label class="label" for="qty"><span><?php /* @noEscape */ echo __('Qty') ?></span></label>
+                        <div class="control">
+                            <input type="number"
+                                   name="qty"
+                                   id="qty"
+                                   maxlength="12"
+                                   value="<?php /* @noEscape */ echo $block->getProductDefaultQty() * 1 ?>"
+                                   title="<?php /* @noEscape */ echo __('Qty') ?>" class="input-text qty"
+                                   data-validate="<?php echo $block->escapeHtml($validators) ?>"
+                            />
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <input type="hidden" name="qty" id="qty" maxlength="12" value="1"/>
+                <?php endif; ?>
+            <?php endif; ?>
+            <div class="actions">
+                <?php if (!$fpxProductHelper->isFpxEnabledByProductId($_product->getId())) : ?>
+                    <button type="submit"
+                            title="<?php /* @noEscape */ echo $buttonTitle ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button">
+                        <span><?php /* @noEscape */ echo $buttonTitle ?></span>
+                    </button>
+                <?php endif; ?>
+                <?php echo $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php if (!$block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "catalogAddToCart": {
+                "bindSubmit": false
+            }
+        }
+    }
+</script>
+<?php endif; ?>
