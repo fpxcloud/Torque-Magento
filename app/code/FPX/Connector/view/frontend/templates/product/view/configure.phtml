@@ -1,0 +1,31 @@
+<?php
+/** @var $block \FPX\Connector\Block\Product\View */
+
+$fpxButtonTitle = __('Configure');
+?>
+<?php if ($block->isFpxProduct()) : ?>
+    <button type="button"
+            title="<?php echo $block->escapeHtml($fpxButtonTitle); ?>"
+            class="action primary loadfpx"
+            id="product-loadfpx-button"
+            data-mage-init='{
+                "cpqButton": {
+                    "authUrl": "<?php echo $block->escapeUrl($block->getUrl('fpx_connector/fpx/authenticate')); ?>",
+                    "addCartUrl": "<?php echo $block->escapeUrl($block->getUrl('checkout/cart/add')); ?>",
+                    "useFormData": true,
+                    "formElement": "#product_addtocart_form",
+                    "requestOptions": {},
+                    "integrationOptions": {
+                        "divId": "cpq_popup",
+                        "iframeUrl": "<?php /* @noEscape */ echo $block->getIframeUrl(); ?>",
+                        "sku": "<?php /* @noEscape */ echo $block->getProductSku(); ?>",
+                        "dataSet": "<?php /* @noEscape */ echo $block->getProductFpxId(); ?>",
+                        "action": "add",
+                        "productDataPrefix": "<?php /* @noEscape */ echo $block->getProductDataPrefix(); ?>"
+                    }
+                }
+            }'
+    >
+        <span><?php /* @noEscape */ echo $fpxButtonTitle; ?></span>
+    </button>
+<?php endif; ?>

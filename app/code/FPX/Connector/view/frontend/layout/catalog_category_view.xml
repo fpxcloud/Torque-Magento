@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector Catalog category view
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="category.products.list" template="FPX_Connector::product/list.phtml"/>
+    </body>
+</page>
