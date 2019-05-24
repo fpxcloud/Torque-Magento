@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector module
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="FPX_Connector" setup_version="0.3.0">
+        <sequence>
+            <module name="Magento_Eav" />
+            <module name="Magento_Checkout" />
+            <module name="Magento_CatalogSearch" />
+            <module name="Magento_TargetRule" />
+        </sequence>
+    </module>
+</config>

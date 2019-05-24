@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector events
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_cart_product_add_after">
+        <observer name="fpx_configured_product_price_cart" instance="FPX\Connector\Observer\CartCustomPrice" />
+    </event>
+    <event name="sales_quote_product_add_after">
+        <observer name="fpx_configured_product_price_quote" instance="FPX\Connector\Observer\QuoteCustomPrice" />
+    </event>
+</config>

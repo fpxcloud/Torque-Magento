@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FPX_Connector default
+ *
+ * @category    FPX
+ * @package     FPX_Connector
+ * @copyright   Copyright (c) 2017 FPX (www.fpx.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="wishlist_sidebar" template="FPX_Connector::sidebar.phtml"/>
+        <referenceBlock name="multiple-wishlist_sidebar" template="FPX_Connector::sidebar.phtml"/>
+        <referenceBlock name="sale.reorder.sidebar" template="FPX_Connector::reorder/sidebar.phtml"/>
+    </body>
+</page>
