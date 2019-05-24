@@ -1,0 +1,87 @@
+# This file describes an application. You can have multiple applications
+# in the same project.
+
+
+# The name of this app. Must be unique within a project.
+name: mymagento
+
+# The toolstack used to build the application.
+type: php:7.0
+build:
+    flavor: composer
+
+# Enable extensions required by Magento 2
+runtime:
+    extensions:
+        - mcrypt
+        - redis
+        - xsl
+        - json
+        - blackfire
+
+# The relationships of the application with services or other applications.
+# The left-hand side is the name of the relationship as it will be exposed
+# to the application in the environment variable. The right-hand
+# side is in the form `<service name>:<endpoint name>`.
+relationships:
+    database: "mysql:mysql"
+    redis: "redis:redis"
+
+# The configuration of app when it is exposed to the web.
+web:
+    locations:
+        "/":
+            # The public directory of the app, relative to its root.
+            root: "pub"
+            # The front-controller script to send non-static requests to.
+            passthru: "/index.php"
+            index:
+                - index.php
+            expires: -1
+            scripts: true
+            allow: false
+            rules:
+                \.(css|js|map|hbs|gif|jpe?g|png|tiff|wbmp|ico|jng|bmp|svgz|midi?|mp?ga|mp2|mp3|m4a|ra|weba|3gpp?|mp4|mpe?g|mpe|ogv|mov|webm|flv|mng|asx|asf|wmv|avi|ogx|swf|jar|ttf|eot|woff|otf|html?)$:
+                    allow: true
+                /robots\.txt$:
+                    allow: true
+        "/media":
+            root: "pub/media"
+            allow: true
+            scripts: false
+            passthru: "/index.php"
+        "/static":
+            root: "pub/static"
+            allow: true
+            scripts: false
+            passthru: "/front-static.php"
+            rules:
+                ^/static/version\d+/(?<resource>.*)$:
+                    passthru: "/static/$resource"
+
+
+# The size of the persistent disk of the application (in MB).
+disk: 2048 
+
+# The mounts that will be performed when the package is deployed.
+mounts:
+    "var": "shared:files/var"
+    "app/etc": "shared:files/etc"
+    "pub/media": "shared:files/media"
+    "pub/static": "shared:files/static"
+
+# The hooks executed at various points in the lifecycle of the application.
+hooks:
+    # We run build hooks before your application has been packaged.
+    build: |
+        php ./bin/magento magento-cloud:build
+    # We run deploy hook after your application has been deployed and started.
+    deploy: |
+        php ./vendor/magento/magento-cloud-configuration/pre-deploy.php
+        php ./bin/magento magento-cloud:deploy
+
+# Default Magento 2 cron jobs
+crons:
+    cronrun:
+        spec: "*/5 * * * *"
+        cmd: "php bin/magento cron:run && php bin/magento cron:run"
