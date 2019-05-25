@@ -11668,36 +11668,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-staging-page-builder",
-            "version": "1.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-staging-page-builder/magento-module-staging-page-builder-1.0.0.0.zip",
-                "shasum": "2b4c6cd58b8df857afb9489a766203f7a47d8ae2"
-            },
-            "require": {
-                "magento/framework": "102.0.1.*",
-                "php": "~7.1.3||~7.2.0"
-            },
-            "suggest": {
-                "magento/module-page-builder": "*",
-                "magento/module-staging": "~101.1.1"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\StagingPageBuilder\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Staging Page Builder module"
-        },
-        {
             "name": "magento/module-store",
             "version": "101.0.1",
             "dist": {
