@@ -10,9 +10,9 @@ return [
         'table_prefix' => '',
         'connection' => [
             'default' => [
-                'host' => 'database.internal',
+                'host' => 'localhost',
                 'dbname' => 'magento',
-                'username' => 'user',
+                'username' => 'root',
                 'password' => '',
                 'active' => '1'
             ]
