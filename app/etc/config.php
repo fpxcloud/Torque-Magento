@@ -56,7 +56,11 @@ return [
         'Magento_Cookie' => 1,
         'Magento_Email' => 1,
         'Magento_CurrencySymbol' => 1,
+<<<<<<< HEAD
         'FPX_DemoTruckStore' => 1,
+=======
+        'FPX_DemoTruckStore' => 0,
+>>>>>>> Torque-Magento/master
         'Magento_Analytics' => 1,
         'Magento_CustomerGraphQl' => 1,
         'Magento_CustomerImportExport' => 1,

@@ -6,7 +6,11 @@
 name: mymagento
 
 # The toolstack used to build the application.
+<<<<<<< HEAD
 type: php:7.2
+=======
+type: php:7.0
+>>>>>>> Torque-Magento/master
 build:
     flavor: composer
 
