@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "758832dca53cba659d813c126f37d8a1",
+    "content-hash": "7a6ac4ea2a189a1abd526fbb3d20f055",
     "packages": [
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
@@ -18984,5 +18984,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.1.3"
+    }
 }
